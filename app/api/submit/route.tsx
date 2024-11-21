@@ -1,18 +1,19 @@
+import { NextRequest, NextResponse } from "next/server";
 import axios from "axios";
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   try {
-    const { owner1, owner2, owner3, email } = await req.json();
+    const body = await req.json();
 
     const data = JSON.stringify({
       submission: {
         form_id: 569822,
         team_id: 111,
         responses: {
-          "Name of owner": owner1,
-          "Name of owner 2": owner2,
-          "Name of owner 3": owner3,
-          email: email,
+          "Name of owner": body.owner1,
+          "Name of owner 2": body.owner2,
+          "Name of owner 3": body.owner3,
+          email: body.email,
         },
       },
       email_name: "email",
@@ -39,9 +40,9 @@ export async function POST(req) {
     };
 
     const response = await axios.request(config);
-    return new Response(JSON.stringify(response.data), { status: 200 });
+    return NextResponse.json(response.data);
   } catch (error) {
-    console.error("Error making external API request:", error.message);
-    return new Response(JSON.stringify({ error: "Failed to submit data." }), { status: 500 });
+    console.error("Error in API request:", error);
+    return NextResponse.json({ error: "An error occurred while submitting the form." }, { status: 500 });
   }
 }
