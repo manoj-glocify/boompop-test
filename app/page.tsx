@@ -48,6 +48,7 @@ export default function Home() {
     backgroundColor: "#f9f9f9",
     borderRadius: "8px",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    color: "#000"
   };
 
   const inputStyle = {
@@ -57,6 +58,7 @@ export default function Home() {
     border: "1px solid #ccc",
     borderRadius: "4px",
     fontSize: "14px",
+    color: "#000"
   };
 
   const labelStyle = {
