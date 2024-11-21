@@ -93,7 +93,7 @@ export default function Home() {
 
   return (
     <div style={formStyle}>
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Submit Form</h1>
+      <h1 style={{ textAlign: "center", marginBottom: "20px" , color: "#000"}}>Submit Form</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label style={labelStyle}>Name of Owner 1:</label>
